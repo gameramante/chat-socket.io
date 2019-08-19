@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Chat</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/style.css">
+		<link rel="stylesheet" href="public/style.css">
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+        <script>
+            $(function () {
+                var socket = io();
+                $('form').submit(function(e){
+                    e.preventDefault(); //Will not allow the page to reload.
+                    socket.emit('chat message', $('#type-area').val());
+                    $('#type-area').val('');
+                    return false;
+                });
+                socket.on('chat message', function(msg){
+                    $('#messages').append($('<li>').text(msg));
+					$('#messages').scrollTop($('#messages')[0].scrollHeight);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <!-- top area -->
+
+            <div id="header">
+                <div class="people">
+                    <img src="https://randomuser.me/api/portraits/women/53.jpg" width="60px" height="60px">
+                    <span>Elena</span>
+                </div>
+                <div class="people">
+                    <img src="https://randomuser.me/api/portraits/women/59.jpg" width="60px" height="60px">
+                    <span>Cat</span>
+                </div>
+                <div class="people">
+                    <img src="https://randomuser.me/api/portraits/men/79.jpg" width="60px" height="60px">
+                    <span>Marco</span>
+                </div>
+                <div class="people">
+                    <img src="https://randomuser.me/api/portraits/men/12.jpg" width="60px" height="60px">
+                    <span>Obama</span>
+                </div>
+                <div class="people">
+                    <img src="https://randomuser.me/api/portraits/men/17.jpg" width="60px" height="60px">
+                    <span>John</span>
+                </div>
+                <div class="people">
+                    <img src="https://randomuser.me/api/portraits/men/49.jpg" width="60px" height="60px">
+                    <span>Joe</span>
+                </div>
+                <div id="view-more">
+                    <a href=""><img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Plus_symbol.svg" width="60px" height="60px"></a>
+                    <a id="view-more-a"href="#">More</a>
+                </div>
+            </div>
+            <!-- chat area -->
+
+            <div id="chat">
+                <div id="message-box">
+                    <ul id="messages"></ul>
+                </div>
+                <div id="type-message">
+                    <form action="">
+                        <input id="type-area" autocomplete="off" placeholder="Type your Message">
+                    </form>
+                </div>
+                <div id="send-button">
+                    <form action="">
+                        <button>Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

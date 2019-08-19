@@ -1,0 +1,103 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+body{
+    font-family: sans-serif;
+}
+
+/* header */
+
+#header{
+    background: white;
+    border: 2px solid #6D6E6F;
+    border-top: 15px solid #6D6E6F;
+    width: 600px;
+    height: 95px;
+    margin: 5px auto 5px auto;
+    font-weight: 400;
+}
+
+.people{
+    margin: 5px;
+    padding-left: 12px;
+    float: left;
+}
+
+.people img{
+    border: 1px solid black;
+    border-radius: 50%;
+}
+.people span{
+    display: block;
+    text-align: center;
+}
+
+.people span:hover{
+    border-bottom: 1px solid black;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#view-more{
+    margin: 5px;
+    padding-right: 12px;
+    float: right;
+}
+
+#view-more img{
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+#view-more-a{
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    text-align: center;
+}
+
+#view-more-a:hover{
+    font-weight: 600;
+    border-bottom: 1px solid black;
+}
+
+.clear{
+    clear: both;
+}
+
+/* Chat */
+
+#chat{
+    border: 1px solid black;
+    width: 600px;
+    height: 500px;
+    margin: 0px auto;
+}
+
+#message-box{
+    word-break: break-all;
+    width: 600px;
+    height: 400px;
+}
+
+#message-box ul{
+    list-style-type: none;
+    padding: 10px;
+	max-height: 380px;
+    overflow: auto;
+}
+
+#type-message input{
+    width: 500px;
+    height: 95px;
+    float: left;
+}
+
+#send-button button{
+    float: right;
+    width: 96px;
+    height: 100px;
+}
